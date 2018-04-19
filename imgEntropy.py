@@ -37,3 +37,39 @@ def get_entropy_of_image(img_grey, neighborhood=5):
     return entropy
 # Get the entropy of the image
 img_entropy = get_entropy_of_image(img_grey)
+
+img1 = plt.figure(figsize=(12, 12))
+plt.imshow(img_color)
+plt.grid(False)
+plt.xticks([])
+plt.yticks([])
+
+plt.figure(figsize=(12, 12));
+plt.imshow(img_grey, cmap=plt.cm.gray);
+plt.grid(False);
+plt.xticks([]);
+plt.yticks([]);
+
+neighborhood = 5
+plt.figure(figsize=(12, 12));
+plt.imshow(img_entropy, cmap=plt.cm.Purples);
+plt.title('Entropy in {}x{} neighborhood'.format(2*neighborhood, 2*neighborhood));
+plt.colorbar();
+plt.grid(False);
+plt.xticks([]);
+plt.yticks([]);
+
+# 10 x 10 neighbor
+lowpass = ndimage.gaussian_filter(img_grey, 10)
+# Subtracting the lowpass, we get the highpass
+highpass = img_grey - lowpass
+
+plt.figure(figsize=(12, 12));
+plt.imshow(highpass, cmap=plt.cm.Purples);
+plt.colorbar();
+plt.grid(False);
+plt.xticks([]);
+plt.yticks([]);
+
+plt.figure()
+plt.show()

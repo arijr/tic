@@ -31,3 +31,9 @@ for ii in sorted_word_count_information:
     if len(ii[0]) >= 15: separation = ''
     print("%s %s %s \t %s"%(ii[0], separation, str(ii[1]), str(ii[2])))
 print ("\n\nEntropy of complete text: {}".format(entropy))
+
+plt.figure(figsize=(12, 12));
+plt.imshow(img_color);
+plt.grid(False);
+plt.xticks([]);
+plt.yticks([]);
